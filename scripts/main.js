@@ -87,3 +87,47 @@ document.querySelectorAll('.glass').forEach(card => {
         card.style.background = 'rgba(255, 255, 255, 0.1)';
     });
 });
+
+// Contact form handling
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(contactForm);
+        const formProps = Object.fromEntries(formData);
+        
+        // For now, we'll just log the form data
+        console.log('Form submitted:', formProps);
+        
+        // Here you would typically send this to your backend
+        // You can integrate with services like EmailJS or FormSpree
+        alert('Thank you for your message! I will get back to you soon.');
+        contactForm.reset();
+    });
+}
+
+// Project hover effects
+const projectItems = document.querySelectorAll('.project-item');
+projectItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        item.style.transform = 'translateY(-5px)';
+    });
+    
+    item.addEventListener('mouseleave', () => {
+        item.style.transform = 'translateY(0)';
+    });
+});
+
+// Smooth scroll for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+            document.querySelector(href).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
