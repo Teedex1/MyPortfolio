@@ -92,7 +92,10 @@ document.querySelectorAll('.glass').forEach(card => {
 document.getElementById('contact-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitButton = e.target.querySelector('button[type="submit"]');
-    submitButton.textContent = 'Sending...';
+    const originalText = submitButton.innerHTML;
+    
+    // Add loading spinner
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitButton.disabled = true;
 
     try {
@@ -109,16 +112,25 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
         });
 
         if (response.ok) {
-            alert('Message sent successfully!');
+            submitButton.innerHTML = '<i class="fas fa-check"></i> Sent!';
+            submitButton.style.background = 'var(--primary-color)';
             e.target.reset();
+            setTimeout(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.style.background = '';
+                submitButton.disabled = false;
+            }, 2000);
         } else {
             throw new Error('Failed to send message');
         }
     } catch (error) {
-        alert('Failed to send message. Please try again later.');
-    } finally {
-        submitButton.textContent = 'Send Message';
-        submitButton.disabled = false;
+        submitButton.innerHTML = '<i class="fas fa-exclamation-circle"></i> Failed to send';
+        submitButton.style.background = '#dc2626';
+        setTimeout(() => {
+            submitButton.innerHTML = originalText;
+            submitButton.style.background = '';
+            submitButton.disabled = false;
+        }, 2000);
     }
 });
 
