@@ -88,24 +88,39 @@ document.querySelectorAll('.glass').forEach(card => {
     });
 });
 
-// Contact form handling
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const formData = new FormData(contactForm);
-        const formProps = Object.fromEntries(formData);
-        
-        // For now, we'll just log the form data
-        console.log('Form submitted:', formProps);
-        
-        // Here you would typically send this to your backend
-        // You can integrate with services like EmailJS or FormSpree
-        alert('Thank you for your message! I will get back to you soon.');
-        contactForm.reset();
-    });
-}
+// Contact Form Handling
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitButton = e.target.querySelector('button[type="submit"]');
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+
+    try {
+        const response = await fetch('http://localhost:5000/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            })
+        });
+
+        if (response.ok) {
+            alert('Message sent successfully!');
+            e.target.reset();
+        } else {
+            throw new Error('Failed to send message');
+        }
+    } catch (error) {
+        alert('Failed to send message. Please try again later.');
+    } finally {
+        submitButton.textContent = 'Send Message';
+        submitButton.disabled = false;
+    }
+});
 
 // Project hover effects
 const projectItems = document.querySelectorAll('.project-item');
