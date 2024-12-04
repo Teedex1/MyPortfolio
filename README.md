@@ -36,7 +36,7 @@ A modern, responsive portfolio website showcasing my software development projec
 
 1. Clone the repository
 ```bash
-git clone [your-repo-link]
+git clone [https://github.com/Teedex1/MyPortfolio]
 ```
 
 2. Install NPM packages
