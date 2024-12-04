@@ -6,19 +6,7 @@
             "use": "@vercel/node"
         },
         {
-            "src": "index.html",
-            "use": "@vercel/static"
-        },
-        {
-            "src": "styles/**",
-            "use": "@vercel/static"
-        },
-        {
-            "src": "scripts/**",
-            "use": "@vercel/static"
-        },
-        {
-            "src": "images/**",
+            "src": "**",
             "use": "@vercel/static"
         }
     ],
@@ -28,11 +16,20 @@
             "dest": "backend/server.js"
         },
         {
-            "handle": "filesystem"
+            "src": "/styles/(.*)",
+            "dest": "/styles/$1"
+        },
+        {
+            "src": "/scripts/(.*)",
+            "dest": "/scripts/$1"
+        },
+        {
+            "src": "/images/(.*)",
+            "dest": "/images/$1"
         },
         {
             "src": "/(.*)",
-            "dest": "/index.html"
+            "dest": "/$1"
         }
     ]
 }
