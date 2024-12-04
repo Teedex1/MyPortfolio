@@ -9,6 +9,11 @@
 </head>
 <body>
     <div id="particles-js"></div>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle glass" aria-label="Toggle theme">
+    <i class="fas fa-sun"></i>
+    <i class="fas fa-moon"></i>
+    </button>
     
     <!-- Profile Section -->
 <section class="profile-card glass">
@@ -37,11 +42,31 @@
             <div class="about-details">
                 <div class="detail-item">
                     <h3>Education</h3>
-                    <p>Software Development - HyperionDev</p>
+                    <div class="education-item">
+                        <h4>ALX Software Engineering</h4>
+                        <p class="duration">Oct 2023 - Nov 2024 </p>
+                        <ul class="achievement-list">
+                            <li>Full-Stack Web Development specialization</li>
+                            <li>Advanced JavaScript and Python programming</li>
+                            <li>System Engineering and DevOps with C and Shell scripting</li>
+                            <li>Database design and API development</li>
+                            <li>Collaborative team projects and peer learning</li>
+                            <li>Agile methodologies and Git version control</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="detail-item">
                     <h3>Experience</h3>
-                    <p>Full Stack Developer - [Your Experience]</p>
+                    <div class="experience-item">
+                        <h4>Full Stack Developer</h4>
+                        <p class="duration">2023 - Present</p>
+                        <ul class="achievement-list">
+                            <li>Developed and deployed a full-stack Task Management application using the MERN stack</li>
+                            <li>Built a modern real estate platform (Housify) with React and Node.js</li>
+                            <li>Implemented secure user authentication using JWT and MongoDB</li>
+                            <li>Created responsive UI designs using Tailwind CSS and Material UI</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <a href="Resume - Tunde Ogunmodede.pdf" download="Resume - Tunde Ogunmodede.pdf" class="btn glass download-cv">Download CV <i class="fas fa-download"></i></a>
@@ -85,6 +110,57 @@
                 <span>VS Code</span>
             </div>
         </div>
+
+        <h3 class="soft-skills-title">Professional Skills</h3>
+        <div class="skills-categories">
+            <div class="skill-category glass">
+                <div class="category-header">
+                    <i class="fas fa-users"></i>
+                    <h4>Leadership & Collaboration</h4>
+                </div>
+                <ul>
+                    <li>Peer Programming</li>
+                    <li>Project Coordination</li>
+                    <li>Team Collaboration</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category glass">
+                <div class="category-header">
+                    <i class="fas fa-brain"></i>
+                    <h4>Problem Solving</h4>
+                </div>
+                <ul>
+                    <li>Analytical Thinking</li>
+                    <li>Creative Solutions</li>
+                    <li>Debug & Troubleshooting</li>
+                </ul>
+            </div>
+
+            <div class="skill-category glass">
+                <div class="category-header">
+                    <i class="fas fa-comments"></i>
+                    <h4>Communication</h4>
+                </div>
+                <ul>
+                    <li>Technical Writing</li>
+                    <li>Documentation</li>
+                    <li>Client Interaction</li>
+                </ul>
+            </div>
+
+            <div class="skill-category glass">
+                <div class="category-header">
+                    <i class="fas fa-tasks"></i>
+                    <h4>Work Management</h4>
+                </div>
+                <ul>
+                    <li>Time Management</li>
+                    <li>Task Prioritization</li>
+                    <li>Agile Methodologies</li>
+                </ul>
+            </div>
+        </div>
     </section>
 </div>
 
@@ -125,11 +201,11 @@
                         <span class="tech-tag">Recharts</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" target="_blank" class="btn glass">Demo</a>
+                        <a href="#" class="btn glass disabled" title="Demo coming soon"><i class="fas fa-clock"></i> Coming Soon</a>
                         <a href="https://github.com/Teedex1/New-housify" target="_blank" class="btn glass">Code</a>
                     </div>
                 </div>
-                <div class="project-item">
+                <!-- <div class="project-item">
                     <div class="project-image">
                         <img src="images/weather-app.png" alt="Weather Dashboard" class="project-thumbnail">
                     </div>
@@ -144,7 +220,7 @@
                         <a href="#" target="_blank" class="btn glass">Demo</a>
                         <a href="#" target="_blank" class="btn glass">Code</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
 
